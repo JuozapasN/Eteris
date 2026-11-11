@@ -24,6 +24,8 @@
 
         <!-- One station row -->
         <Style x:Key="StationButton" TargetType="Button">
+            <!-- Buttons default to black text and don't inherit the window's colour, so set it here. -->
+            <Setter Property="Foreground" Value="#F2F3F5" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Margin" Value="0,0,0,8" />
