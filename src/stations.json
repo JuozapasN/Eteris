@@ -1,0 +1,17 @@
+[
+  {
+    "name": "M-1",
+    "note": "m-1.fm",
+    "url": "https://video.m-1.fm/m-1_audio/m-1_audio.stream/playlist.m3u8"
+  },
+  {
+    "name": "LRT Opus",
+    "note": "lrt.lt",
+    "url": "https://stream-live.lrt.lt/radio_opus/lrt_opus.m3u8"
+  },
+  {
+    "name": "LRT Radijas",
+    "note": "lrt.lt",
+    "url": "https://stream-live.lrt.lt/radio_radijas/lrt_radijas.m3u8"
+  }
+]
