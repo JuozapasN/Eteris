@@ -1,0 +1,62 @@
+<Window x:Class="RadioPlayer.MiniWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Radio mini player"
+        Width="380"
+        Height="52"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Topmost="True"
+        ShowInTaskbar="False"
+        WindowStartupLocation="Manual"
+        Background="{StaticResource Window}"
+        Foreground="{StaticResource Text}"
+        FontFamily="{StaticResource Ui}"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True">
+
+    <!-- The whole strip is the drag handle; double-click goes back to the full window. -->
+    <Border BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Background="Transparent">
+        <Grid Margin="9,0,4,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="78" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource PlayButton}" Width="32" Height="32" Click="PlayPause_Click"
+                    ToolTip="Play / pause (Space)" AutomationProperties.Name="{Binding PlayLabel}">
+                <TextBlock FontFamily="{StaticResource Icons}" FontSize="13" Text="{Binding PlayGlyph}" />
+            </Button>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,6,1"
+                        ToolTip="Drag to move · double-click for the full window · right-click for stations">
+                <TextBlock x:Name="HeadlineText" Text="{Binding Headline}" FontSize="13" FontWeight="SemiBold"
+                           TextTrimming="CharacterEllipsis" />
+                <TextBlock x:Name="DetailText" Text="{Binding Detail}" FontSize="11" Foreground="{StaticResource Muted}"
+                           TextTrimming="CharacterEllipsis" />
+            </StackPanel>
+
+            <Button Grid.Column="2" Style="{StaticResource IconButton}" Click="Mute_Click" ToolTip="Mute (M)"
+                    AutomationProperties.Name="Mute">
+                <TextBlock FontFamily="{StaticResource Icons}" FontSize="14" Text="{Binding VolumeGlyph}" />
+            </Button>
+
+            <Slider Grid.Column="3" Style="{StaticResource VolumeSlider}" VerticalAlignment="Center"
+                    Value="{Binding Volume, Mode=TwoWay}" AutomationProperties.Name="Volume" />
+
+            <Button Grid.Column="4" Style="{StaticResource IconButton}" Margin="6,0,0,0" Click="Expand_Click"
+                    ToolTip="Full window" AutomationProperties.Name="Full window">
+                <TextBlock FontFamily="{StaticResource Icons}" FontSize="12" Text="&#xE740;" />
+            </Button>
+
+            <Button Grid.Column="5" Style="{StaticResource IconButton}" Click="Hide_Click"
+                    ToolTip="Hide to the notification area" AutomationProperties.Name="Hide">
+                <TextBlock FontFamily="{StaticResource Icons}" FontSize="10" Text="&#xE8BB;" />
+            </Button>
+        </Grid>
+    </Border>
+</Window>

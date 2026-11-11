@@ -1,0 +1,93 @@
+<Window x:Class="RadioPlayer.AddStationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add station"
+        Width="420"
+        SizeToContent="Height"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource Window}"
+        Foreground="{StaticResource Text}"
+        FontFamily="{StaticResource Ui}"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True">
+
+    <StackPanel Margin="16">
+
+        <!-- Search the public directory -->
+        <TextBlock Text="Find a station" FontSize="14" FontWeight="SemiBold" />
+        <TextBlock Text="Searches radio-browser.info, a public station directory." FontSize="11"
+                   Foreground="{StaticResource Muted}" Margin="0,2,0,8" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="SearchBox" Style="{StaticResource Field}" KeyDown="SearchBox_KeyDown"
+                     AutomationProperties.Name="Station name" />
+            <Button Grid.Column="1" Style="{StaticResource DialogButton}" Margin="8,0,0,0" Content="Search"
+                    Click="Search_Click" AutomationProperties.Name="Search" />
+        </Grid>
+
+        <ListBox x:Name="Results" Height="230" Margin="0,8,0,0" Background="Transparent" BorderThickness="0"
+                 ItemContainerStyle="{StaticResource ResultItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 SelectionChanged="Results_SelectionChanged" MouseDoubleClick="Results_MouseDoubleClick"
+                 AutomationProperties.Name="Search results">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" FontSize="13" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
+                        <TextBlock Text="{Binding Details}" FontSize="11" Foreground="{StaticResource Muted}"
+                                   TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="SearchStatus" FontSize="12" Foreground="{StaticResource Muted}" VerticalAlignment="Center"
+                       TextWrapping="Wrap" Text="Type a name and press Enter." />
+            <Button x:Name="AddSelected" Grid.Column="1" Style="{StaticResource DialogButton}" Tag="Primary"
+                    Margin="8,0,0,0" Content="Add selected" IsEnabled="False" Click="AddSelected_Click"
+                    AutomationProperties.Name="Add selected" />
+        </Grid>
+
+        <Border Height="1" Background="{StaticResource Line}" Margin="0,16" />
+
+        <!-- Or type the address in -->
+        <TextBlock Text="Or enter a stream address" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Name" FontSize="12" Foreground="{StaticResource Muted}" VerticalAlignment="Center"
+                       Margin="0,0,12,0" />
+            <TextBox x:Name="NameBox" Grid.Column="1" Style="{StaticResource Field}" AutomationProperties.Name="Name" />
+            <TextBlock Grid.Row="1" Text="Address" FontSize="12" Foreground="{StaticResource Muted}"
+                       VerticalAlignment="Center" Margin="0,8,12,0" />
+            <TextBox x:Name="UrlBox" Grid.Row="1" Grid.Column="1" Style="{StaticResource Field}" Margin="0,8,0,0"
+                     KeyDown="UrlBox_KeyDown" AutomationProperties.Name="Stream address" />
+        </Grid>
+
+        <Grid Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="ManualStatus" FontSize="12" Foreground="{StaticResource Muted}" VerticalAlignment="Center"
+                       TextWrapping="Wrap" Text="The address of the audio stream itself, not the station's web page." />
+            <Button Grid.Column="1" Style="{StaticResource DialogButton}" Margin="8,0,0,0" Content="Add"
+                    Click="AddManual_Click" AutomationProperties.Name="Add address" />
+        </Grid>
+    </StackPanel>
+</Window>

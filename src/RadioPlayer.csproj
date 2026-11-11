@@ -5,13 +5,22 @@
     <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
     <UseWPF>true</UseWPF>
+    <!-- Windows Forms is referenced only for NotifyIcon (the tray icon); WPF has none of its own. -->
+    <UseWindowsForms>true</UseWindowsForms>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>RadioPlayer</AssemblyName>
     <RootNamespace>RadioPlayer</RootNamespace>
+    <Version>1.1.0</Version>
     <ApplicationIcon>app.ico</ApplicationIcon>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Keep the WinForms/GDI namespaces out of scope so Button, Application, etc. mean the WPF ones. -->
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
 
   <ItemGroup>
     <Resource Include="app.ico" />
