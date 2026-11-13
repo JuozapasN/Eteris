@@ -94,7 +94,7 @@ public sealed class Radio : INotifyPropertyChanged, IDisposable
     }
 
     /// <summary>The current station's name, or the app's when there is none.</summary>
-    public string Headline => _current?.Name ?? "Radio";
+    public string Headline => _current?.Name ?? "Eteris";
 
     /// <summary>One line describing what is happening: the song or programme, or the connection state.</summary>
     public string Detail =>
@@ -104,7 +104,7 @@ public sealed class Radio : INotifyPropertyChanged, IDisposable
         : _current.Playing.Length > 0 ? _current.Playing
         : "Live";
 
-    public string WindowTitle => _current is not null && _wantPlaying ? $"{_current.Name} – Radio" : "Radio";
+    public string WindowTitle => _current is not null && _wantPlaying ? $"{_current.Name} – Eteris" : "Eteris";
     public string PlayGlyph => _wantPlaying ? PauseIcon : PlayIcon;
     public string PlayLabel => _wantPlaying ? "Pause" : "Play";
     public string VolumeGlyph => _player.IsMuted || _volume == 0 ? MuteIcon : VolumeIcon;

@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
-    Builds the portable version of Radio: one self-contained RadioPlayer.exe (no .NET install
-    needed on the target PC) plus stations.json, zipped as dist\Radio-<runtime>.zip.
+    Builds the portable version of Eteris: one self-contained RadioPlayer.exe (no .NET install
+    needed on the target PC) plus stations.json, zipped as dist\Eteris-<runtime>.zip.
 
 .EXAMPLE
     .\build.ps1
@@ -14,7 +14,7 @@ param(
 $ErrorActionPreference = 'Stop'
 
 $project = Join-Path $PSScriptRoot 'src\RadioPlayer.csproj'
-$out = Join-Path $PSScriptRoot "dist\Radio-$Runtime"
+$out = Join-Path $PSScriptRoot "dist\Eteris-$Runtime"
 $zip = "$out.zip"
 
 if (Test-Path $out) { Remove-Item $out -Recurse -Force }

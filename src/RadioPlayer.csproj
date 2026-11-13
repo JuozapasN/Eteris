@@ -11,7 +11,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>RadioPlayer</AssemblyName>
     <RootNamespace>RadioPlayer</RootNamespace>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
+    <Product>Eteris</Product>
+    <AssemblyTitle>Eteris</AssemblyTitle>
+    <Description>Live internet radio player</Description>
+    <Copyright>Copyright (C) 2026 JuozapasN. Licensed under the GNU GPL v3 or later.</Copyright>
     <ApplicationIcon>app.ico</ApplicationIcon>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>

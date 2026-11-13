@@ -22,7 +22,7 @@ internal sealed class TrayIcon : IDisposable
     public TrayIcon(App app)
     {
         _app = app;
-        _icon = new Forms.NotifyIcon { Icon = LoadIcon(), Text = "Radio", Visible = true };
+        _icon = new Forms.NotifyIcon { Icon = LoadIcon(), Text = "Eteris", Visible = true };
         _icon.MouseUp += OnMouseUp;
         app.Radio.PropertyChanged += OnRadioChanged;
         UpdateTooltip();
@@ -31,7 +31,7 @@ internal sealed class TrayIcon : IDisposable
     /// <summary>Tells the listener, once, that closing the window did not stop the radio.</summary>
     public void ShowHint() => _icon.ShowBalloonTip(
         5000,
-        "Radio is still running",
+        "Eteris is still running",
         "It keeps playing from the notification area. Click its icon to open it, or right-click it to exit.",
         Forms.ToolTipIcon.None);
 
@@ -75,7 +75,7 @@ internal sealed class TrayIcon : IDisposable
     private void UpdateTooltip()
     {
         var radio = _app.Radio;
-        string text = radio.Current is null ? "Radio" : $"{radio.Headline} – {radio.Detail}";
+        string text = radio.Current is null ? "Eteris" : $"{radio.Headline} – {radio.Detail}";
         if (text.Length > 100) text = text[..99] + "…"; // NotifyIcon rejects long tooltips
         if (_icon.Text != text) _icon.Text = text;
     }

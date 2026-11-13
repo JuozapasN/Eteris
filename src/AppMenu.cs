@@ -21,7 +21,7 @@ internal static class AppMenu
             menu.Items.Add(new Separator());
         }
 
-        menu.Items.Add(Item("Open Radio", app.ShowMain));
+        menu.Items.Add(Item("Open Eteris", app.ShowMain));
         menu.Items.Add(Item("Mini player", app.ShowMini));
         menu.Items.Add(new Separator());
         menu.Items.Add(Item("Exit", app.Quit));

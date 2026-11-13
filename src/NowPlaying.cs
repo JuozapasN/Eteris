@@ -13,7 +13,7 @@ internal static class Http
     private static HttpClient Create()
     {
         var client = new HttpClient { Timeout = TimeSpan.FromSeconds(15) };
-        client.DefaultRequestHeaders.UserAgent.ParseAdd("RadioPlayer/1.1");
+        client.DefaultRequestHeaders.UserAgent.ParseAdd("Eteris/1.2");
         return client;
     }
 }

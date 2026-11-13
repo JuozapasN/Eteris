@@ -1,9 +1,10 @@
-# Radio
+# Eteris
 
-A tiny Windows app for listening to live internet radio without opening a browser.
+Eteris (Lithuanian for "the airwaves") is a tiny Windows app for listening to live internet
+radio without opening a browser.
 Pick a station, play or pause, set the volume — and it stays out of the way in the tray.
 
-![Radio window](docs/screenshot.png)
+![Eteris window](docs/screenshot.png)
 
 - **Always live.** Pressing play reopens the stream, so you hear the current broadcast,
   never the point where you paused.
@@ -25,9 +26,9 @@ Stations it ships with: M-1, LRT Opus, LRT Radijas.
 
 Requires Windows 10 (version 2004) or Windows 11, 64-bit.
 
-1. Open the [Releases](https://github.com/JuozapasN/Radio/releases) page and download
-   `Radio-win-x64.zip` from the latest release.
-2. Extract it to a folder you'll keep, e.g. `%LOCALAPPDATA%\Radio`.
+1. Open the [Releases](https://github.com/JuozapasN/Eteris/releases) page and download
+   `Eteris-win-x64.zip` from the latest release.
+2. Extract it to a folder you'll keep, e.g. `%LOCALAPPDATA%\Eteris`.
 3. Run `RadioPlayer.exe`. Nothing else needs to be installed.
 
 The exe is not code-signed, so the first run on a new PC may show a Windows SmartScreen
@@ -37,7 +38,7 @@ To get Desktop and Start menu shortcuts, either right-click the exe and pin it, 
 [install-shortcuts.ps1](install-shortcuts.ps1) from this repo:
 
 ```powershell
-.\install-shortcuts.ps1 -Exe "$env:LOCALAPPDATA\Radio\RadioPlayer.exe"
+.\install-shortcuts.ps1 -Exe "$env:LOCALAPPDATA\Eteris\RadioPlayer.exe"
 ```
 
 To update, exit the app (tray icon → **Exit**) and extract the new zip over the old folder.
@@ -103,6 +104,9 @@ Only one copy runs at a time; launching it again brings the open window to the f
 | `%APPDATA%\RadioPlayer\settings.json` | Volume, last station, window positions. |
 | `stations.json` next to `RadioPlayer.exe` | The starting list, used until you have your own. |
 
+The program file and its data folder keep the project's original name, `RadioPlayer`, so that
+installs from before the rename to Eteris carry on working.
+
 `stations.json` can also be edited by hand (exit the app first):
 
 ```json
@@ -134,7 +138,7 @@ Needs the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```powershell
 dotnet run --project src        # run it
-.\build.ps1                     # portable build -> dist\Radio-win-x64.zip
+.\build.ps1                     # portable build -> dist\Eteris-win-x64.zip
 ```
 
 `build.ps1` produces a single self-contained `RadioPlayer.exe`, the same thing the release
@@ -169,3 +173,18 @@ git push origin v1.2.0
 | `install-shortcuts.ps1` | Creates Desktop / Start menu shortcuts. |
 | `tools/make-icon.ps1` | Regenerates `src/app.ico`. |
 | `.github/workflows/release.yml` | Builds and publishes a release when a `v*` tag is pushed. |
+
+## License
+
+Copyright (C) 2026 JuozapasN
+
+Eteris is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3 of
+the License, or (at your option) any later version.
+
+Eteris is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+[GNU General Public License](LICENSE) for more details.
+
+Eteris is not affiliated with or endorsed by the stations it lists. Station names belong to
+their owners, and the streams remain theirs to change or withdraw.
