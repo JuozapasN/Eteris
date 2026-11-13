@@ -8,7 +8,8 @@ Pick a station, play or pause, set the volume — and it stays out of the way in
 - **Always live.** Pressing play reopens the stream, so you hear the current broadcast,
   never the point where you paused.
 - **Now playing.** Shows the current song or programme under the station name, in the tray
-  tooltip and in the Windows media flyout (where the station provides it).
+  tooltip and in the Windows media flyout (where the station provides it). Titles too long to
+  fit scroll slowly instead of being cut off.
 - **Lives in the tray.** Closing the window keeps the radio playing; the tray icon brings it
   back, switches station, or exits.
 - **Mini player.** A one-line strip that stays on top of other windows.

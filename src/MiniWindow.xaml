@@ -1,6 +1,7 @@
 <Window x:Class="RadioPlayer.MiniWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RadioPlayer"
         Title="Radio mini player"
         Width="380"
         Height="52"
@@ -36,8 +37,8 @@
                         ToolTip="Drag to move · double-click for the full window · right-click for stations">
                 <TextBlock x:Name="HeadlineText" Text="{Binding Headline}" FontSize="13" FontWeight="SemiBold"
                            TextTrimming="CharacterEllipsis" />
-                <TextBlock x:Name="DetailText" Text="{Binding Detail}" FontSize="11" Foreground="{StaticResource Muted}"
-                           TextTrimming="CharacterEllipsis" />
+                <local:MarqueeText x:Name="DetailText" Text="{Binding Detail}" HorizontalAlignment="Left"
+                                   TextElement.FontSize="11" TextElement.Foreground="{StaticResource Muted}" />
             </StackPanel>
 
             <Button Grid.Column="2" Style="{StaticResource IconButton}" Click="Mute_Click" ToolTip="Mute (M)"
